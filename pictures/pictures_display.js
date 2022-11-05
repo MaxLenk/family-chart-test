@@ -32,7 +32,7 @@ function appendData(data) {
               image_data.rows[j + total_row_count].cells[1].innerHTML = information_list[j][1];
           }
           image_data.rows[total_row_count].insertCell(0);
-          image_data.rows[total_row_count].cells[0].innerHTML = "<a href=\"/picture.html?name=" + data[i]['filename'] + 
+          image_data.rows[total_row_count].cells[0].innerHTML = "<a href=\"./picture.html?name=" + data[i]['filename'] + 
                                                                 "\">" + data[i]['filename'] + "</a>";
           image_data.rows[total_row_count].cells[0].setAttribute('rowspan', information_list.length);
 
