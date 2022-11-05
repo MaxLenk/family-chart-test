@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/family-chart-test/static/css/main.8ffb9b16.chunk.css",
+    "main.js": "/family-chart-test/static/js/main.3000de43.chunk.js",
+    "main.js.map": "/family-chart-test/static/js/main.3000de43.chunk.js.map",
+    "runtime-main.js": "/family-chart-test/static/js/runtime-main.318564f4.js",
+    "runtime-main.js.map": "/family-chart-test/static/js/runtime-main.318564f4.js.map",
+    "static/js/2.c47266e8.chunk.js": "/family-chart-test/static/js/2.c47266e8.chunk.js",
+    "static/js/2.c47266e8.chunk.js.map": "/family-chart-test/static/js/2.c47266e8.chunk.js.map",
+    "index.html": "/family-chart-test/index.html",
+    "precache-manifest.109f590c3d6adb98254a1f75ac38d473.js": "/family-chart-test/precache-manifest.109f590c3d6adb98254a1f75ac38d473.js",
+    "service-worker.js": "/family-chart-test/service-worker.js",
+    "static/css/main.8ffb9b16.chunk.css.map": "/family-chart-test/static/css/main.8ffb9b16.chunk.css.map",
+    "static/js/2.c47266e8.chunk.js.LICENSE.txt": "/family-chart-test/static/js/2.c47266e8.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.318564f4.js",
+    "static/js/2.c47266e8.chunk.js",
+    "static/css/main.8ffb9b16.chunk.css",
+    "static/js/main.3000de43.chunk.js"
+  ]
+}
