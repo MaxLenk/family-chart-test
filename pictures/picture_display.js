@@ -17,7 +17,7 @@ function show_image() {
     // grab and show image
     var name = getQueryString()['name'];
     var img = document.getElementById("image");
-    img.src = 'pictures/pictures/' + name + '.jpg';
+    img.src = 'pictures/pictures/' + name + '.png';
     img.height = 400;
     img.alt = 'picture not found';
 
