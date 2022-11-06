@@ -8,7 +8,7 @@ function formatPictureInformation(data){
     people_string = data.names.map(a => a.join(", ")).join("<br>");
 
     if (people_string != ""){
-        information_list.push(["People", people_string]);
+        information_list.push(["People (Left to Right)", people_string]);
     }
 
     //Date
