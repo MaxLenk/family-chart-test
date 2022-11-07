@@ -8,7 +8,7 @@ import Picture from './pages/picture';
   
 function App() {
 return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
     <Navbar />
     <Routes>
         <Route path='/family-tree' element={<FamilyTree/>} />
