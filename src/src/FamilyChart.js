@@ -1,5 +1,5 @@
 import React from "react";
-import f3 from "./src/index.js"; // npm i family-chart
+import f3 from "./family-chart/index.js"; // npm i family-chart
 import "./family-chart.css"; // create file 'family-chart.css' in same directory, copy/paste css from examples/create-tree
 
 export default class FamilyTree extends React.Component {
@@ -50,7 +50,7 @@ export default class FamilyTree extends React.Component {
     store.update.tree({ initial: true });
 
     function data() {
-      return require('./data.json');
+      return require('./json/family_tree.json');
     }
   }
 
