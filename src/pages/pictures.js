@@ -46,7 +46,24 @@ export default function Pictures() {
         []
       );
 
-      const data = React.useMemo(() => processData(pictureJsonData), []);
+
+      const [search, setSearch] = React.useState('');
+
+      const handleSearch = (event) => {
+        setSearch(event.target.value);
+      };
+
+      const processedPictureJsonData = processData(pictureJsonData);
+      // const data = React.useMemo(() => processedPictureJsonData, []);
+      const data = React.useMemo(
+        () =>
+          processedPictureJsonData.filter((picture) => {
+            console.log('Filter function is running ...');
+            return picture.names.join().toLowerCase().includes(search.toLowerCase());
+          }),
+        [search]
+      );
+    
 
       const {
         getTableProps, // table props from react-table
@@ -58,30 +75,37 @@ export default function Pictures() {
         columns,
         data
       });
+
     
       return (
-        <table {...getTableProps()} border="collapse">
-          <thead>
-            {headerGroups.map(headerGroup => (
-              <tr {...headerGroup.getHeaderGroupProps()}>
-                {headerGroup.headers.map(column => (
-                  <th {...column.getHeaderProps()}>{column.render("Header")}</th>
-                ))}
-              </tr>
-            ))}
-          </thead>
-          <tbody {...getTableBodyProps()}>
-            {rows.map((row, i) => {
-              prepareRow(row);
-              return (
-                <tr {...row.getRowProps()}>
-                  {row.cells.map(cell => {
-                    return <td {...cell.getCellProps()}>{cell.render("Cell")}</td>;
-                  })}
+        <>
+          <label htmlFor="search">
+            Search People: 
+            <input id="search" type="text" onChange={handleSearch} />
+          </label>
+          <table {...getTableProps()} border="collapse">
+            <thead>
+              {headerGroups.map(headerGroup => (
+                <tr {...headerGroup.getHeaderGroupProps()}>
+                  {headerGroup.headers.map(column => (
+                    <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+                  ))}
                 </tr>
-              );
-            })}
-          </tbody>
-        </table>
+              ))}
+            </thead>
+            <tbody {...getTableBodyProps()}>
+              {rows.map((row, i) => {
+                prepareRow(row);
+                return (
+                  <tr {...row.getRowProps()}>
+                    {row.cells.map(cell => {
+                      return <td {...cell.getCellProps()}>{cell.render("Cell")}</td>;
+                    })}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </>
       );
 };
