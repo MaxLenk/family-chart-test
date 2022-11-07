@@ -10,6 +10,7 @@
     "family-chart": "0.0.0-beta-1",
     "react": "17.0.0",
     "react-dom": "17.0.0",
+    "react-icons": "^4.6.0",
     "react-router-dom": "^6.4.3",
     "react-scripts": "3.4.3",
     "react-table": "^7.8.0",
