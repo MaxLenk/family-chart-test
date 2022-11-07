@@ -22,7 +22,7 @@ export default function Pictures() {
         () => [
           {
             Header: "Filename",
-            accessor: d => <a href = {process.env.PUBLIC_URL + '/picture?name=' + d.filename}>{d.filename}</a>
+            accessor: d => <a href = {process.env.PUBLIC_URL + '#/picture?name=' + d.filename}>{d.filename}</a>
           },
           {
             Header: "Date",

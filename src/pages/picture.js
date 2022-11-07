@@ -40,14 +40,10 @@ function formatPictureInformation(data){
 
 //get image name
 function getQueryString() {
-    var result = {}, queryString = window.location.search.slice(1),
-        re = /([^&=]+)=([^&]*)/g, m;
+    const [hash, query] = window.location.href. split('#')[1].split('?');
+    const params = Object.fromEntries(new URLSearchParams(query));
   
-    while (m = re.exec(queryString)) {
-      result[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
-    }
-  
-    return result;
+    return params;
 }
 
 export default function Picture() {

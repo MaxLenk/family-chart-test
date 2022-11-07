@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './components/Navbar';
-import { BrowserRouter as Router, Routes, Route}
+import { HashRouter as Router, Routes, Route}
     from 'react-router-dom';
 import FamilyTree from './pages/familyTree';
 import Pictures from './pages/pictures';
@@ -8,7 +8,7 @@ import Picture from './pages/picture';
   
 function App() {
 return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
     <Navbar />
     <Routes>
         <Route path='/family-tree' element={<FamilyTree/>} />
