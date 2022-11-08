@@ -9,10 +9,21 @@ function processData(jsonData) {
   return result;
 }
 
-const Names = ({ values }) => {
+const Names = ({ row }) => {
+  var id_list = row.original.people;
+  
   return (
     <div style={{whiteSpace: "pre-line"}}>
-      {values.map( function( item ){ return item.join( ", " )  } ).join("\n")}
+      {row.original.names.map( (current_row, index) =>
+        <div key={row.original.filename + "_" + index.toString()}>
+          {current_row.map( ( current_person, index2)=>
+            <span key={row.original.filename + "_" + index.toString() + "_" + index2.toString()}>
+              <a href={process.env.PUBLIC_URL + '#/person?id=' + id_list[index][index2]}>{current_person}</a>
+              {index2 + 1 < id_list[index].length ? ", " : ""}
+            </span>
+          )}
+        </div>
+         )}
     </div>
   );
 };
@@ -34,9 +45,7 @@ export default function Pictures() {
           },
           {
             Header: "People",
-            accessor: "names",
-            // Cell method will provide the cell value; we pass it to render a custom component
-            Cell: ({ cell: { value } }) => <Names values={value} />
+            Cell: ({ row }) => <Names row={row} />
           },
           {
             Header: "Additional Information",
@@ -58,7 +67,6 @@ export default function Pictures() {
       const data = React.useMemo(
         () =>
           processedPictureJsonData.filter((picture) => {
-            console.log('Filter function is running ...');
             return picture.names.join().toLowerCase().includes(search.toLowerCase());
           }),
         [search]

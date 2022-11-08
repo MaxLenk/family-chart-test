@@ -5,6 +5,7 @@ import { HashRouter as Router, Routes, Route}
 import FamilyTree from './pages/familyTree';
 import Pictures from './pages/pictures';
 import Picture from './pages/picture';
+import Person from './pages/person';
   
 function App() {
 return (
@@ -14,6 +15,7 @@ return (
         <Route path='/family-tree' element={<FamilyTree/>} />
         <Route path='/pictures' element={<Pictures/>} />
         <Route path='/picture' element={<Picture/>} />
+        <Route path='/person' element={<Person/>} />
     </Routes>
     </Router>
 );

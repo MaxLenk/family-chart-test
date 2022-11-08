@@ -17,9 +17,7 @@ function formatPictureInformation(data){
   var year = data.date.year;
   var month = data.date.month;
   var day = data.date.day;
-  var date_string = (year == null ? "?" : year)+ "/" + 
-                      (month == null ? "?" : month)+ "/"+ 
-                      (day == null ? "?" : day);
+  var date_string = (year || "?") + "/" + (month || "?") + "/" + (day || "?");
 
   if (date_string !== "?/?/?"){
       information_list.push(["Date", date_string]);
@@ -55,12 +53,11 @@ export default function Picture() {
     if (pictureJsonData[i]['filename'] == image_name){
         //found the right image data
         information_list = formatPictureInformation(pictureJsonData[i]);
-        console.log(information_list);
     }
   }
   return (
     <div>
-    <img src={image_loc} width="50%" />
+    <img src={image_loc} width="50%" alt="Image not found" />
     <table>
       <thead>
       </thead>
