@@ -3,14 +3,20 @@ import treeJsonData from '../src/json/family_tree.json'
 
 //take in json object of picture data, output array of [[category name, string information], ...] for each applicable category
 function formatPersonInformation(data){
+  const italic_style = {
+    fontStyle: 'italic'
+  };
+  
   var information_list = [];
 
   //Name info
-  var name = "";
-  name += (data["data"]["first name"] || "?") + " ";
-  name += data["data"]["nickname"] ? '"' + data["data"]["nickname"] + '" ' : "";
-  name += data["data"]["last name"] || "?";
-  name += data["data"]["nee"] ? " (nee " + data["data"]["nee"] + ")" : "";
+  var name = 
+  <>
+    {(data["data"]["first name"] || "?") + " "}
+    {data["data"]["nickname"] ? '"' + data["data"]["nickname"] + '" ' : ""}
+    {data["data"]["last name"] || "?"}
+    <span style={italic_style}>{data["data"]["nee"] ? " (nee " + data["data"]["nee"] + ")" : ""}</span>
+  </>;
   information_list.push(["Name", name]);
 
   var personal_data_list = ["Birthday", "Birthplace", "Deathplace", "Other info", "Gender"];

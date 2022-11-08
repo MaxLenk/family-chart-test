@@ -6,8 +6,19 @@ function formatPictureInformation(data){
   var information_list = [];
 
   //People
-  var people_string = "";
-  people_string = data.names.map(a => a.join(", ")).join("<br>");
+  var people_string = 
+  <div style={{whiteSpace: "pre-line"}}>
+    {data.names.map( (current_row, index) =>
+      <div key={data.filename + "_" + index.toString()}>
+        {current_row.map( ( current_person, index2)=>
+          <span key={data.filename + "_" + index.toString() + "_" + index2.toString()}>
+            <a href={process.env.PUBLIC_URL + '#/person?id=' + data.people[index][index2]}>{current_person}</a>
+            {index2 + 1 < data.people[index].length ? ", " : ""}
+          </span>
+        )}
+      </div>
+      )}
+  </div>;
 
   if (people_string !== ""){
       information_list.push(["People (Left to Right)", people_string]);

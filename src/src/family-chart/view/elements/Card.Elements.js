@@ -5,7 +5,7 @@ export function CardBody({d,card_dim,card_display}) {
       <g transform="translate(${card_dim.text_x}, ${card_dim.text_y})">
         <text clip-path="url(#card_text_clip)">
           <tspan x="${0}" dy="${14}">${card_display[0](d.data)}</tspan>
-          <tspan x="${0}" dy="${14}" font-style = "italic">${card_display[1](d.data)}</tspan>
+          <tspan x="${0}" dy="${14}" font-size="14" font-style = "italic">${card_display[1](d.data)}</tspan>
           <tspan x="${0}" dy="${14}" font-size="10">${card_display[2](d.data)}</tspan>
         </text>
         <rect width="${card_dim.w-card_dim.text_x-10}" height="${card_dim.h-20}" style="mask: url(#fade)" class="text-overflow-mask" /> 
@@ -91,6 +91,26 @@ export function PlusIcon({d,card_dim,x,y}) {
           <line
             x1="50" x2="50" y1="10" y2="90"
             stroke="currentColor" stroke-width="15" stroke-linecap="round"
+          />
+        </g>
+      </g>
+    </g>
+  `)})
+}
+
+export function InfoIcon({d,card_dim,x,y}) {
+  return ({template: (`
+    <g class="card_information">
+      <g transform="translate(${x || card_dim.w/2},${y || card_dim.h})scale(.13)">
+        <circle r="80" cx="40" cy="40" fill="rgba(0,0,0,0)" />
+        <g transform="translate(-10, -8)">
+          <line
+            x1="50" x2="50" y1="30" y2="90"
+            stroke="currentColor" stroke-width="25"
+          />
+          <line
+            x1="50" x2="50" y1="0" y2="5"
+            stroke="currentColor" stroke-width="25" stroke-linecap="round"
           />
         </g>
       </g>

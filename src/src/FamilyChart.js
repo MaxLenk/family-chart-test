@@ -42,7 +42,8 @@ export default class FamilyTree extends React.Component {
           (d) => `${d.data["birthday"] || ""}`
         ],
         mini_tree: true,
-        link_break: false
+        link_break: false,
+        infoLink: true,
       });
 
     view.setCard(Card);

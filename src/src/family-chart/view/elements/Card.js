@@ -5,7 +5,7 @@ import {
   CardImage,
   LinkBreakIconWrapper,
   MiniTree, PencilIcon,
-  PlusIcon
+  PlusIcon, InfoIcon
 } from "./Card.Elements.js"
 import {cardChangeMain, cardEdit, cardShowHideRels} from "../../handlers/cardMethods.js"
 import {isAllRelativeDisplayed} from "../../handlers/general.js"
@@ -28,6 +28,7 @@ export function Card(props) {
       card_image = () => !d.data.to_add ? CardImage({d, image: d.data.data.avatar || null, card_dim, maleIcon: null, femaleIcon: null}).template : '',
       edit_icon = () => !d.data.to_add && props.cardEditForm ? PencilIcon({card_dim, x: card_dim.w-46, y: card_dim.h-20}).template : '',
       add_icon = () => !d.data.to_add && props.cardEditForm ? PlusIcon({card_dim, x: card_dim.w-26, y: card_dim.h-20}).template : '',
+      info_icon = () => !d.data.to_add && props.infoLink ? InfoIcon({card_dim, x: card_dim.w-26, y: card_dim.h-20}).template : '',
       link_break_icon = () => LinkBreakIconWrapper({d,card_dim})
 
     el.innerHTML = (`
@@ -40,6 +41,7 @@ export function Card(props) {
             ${card_image()}
             ${edit_icon()}
             ${add_icon()}
+            ${info_icon()}
           </g>
           ${props.link_break ? link_break_icon() : ''}
         </g>
@@ -64,6 +66,9 @@ export function Card(props) {
 
     p = el.querySelector(".card_add_relative")
     if (p) p.addEventListener("click", (e) => {e.stopPropagation();props.addRelative({d})})
+
+    p = el.querySelector(".card_information")
+    if (p) p.addEventListener("click", (e) => {e.stopPropagation();window.open(process.env.PUBLIC_URL + "#/person?id=" + d.data.id, "_blank");})
 
     p = el.querySelector(".card_family_tree")
     if (p) p.addEventListener("click", (e) => {e.stopPropagation();cardChangeMain(store, {card:el, d})})

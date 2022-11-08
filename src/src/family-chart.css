@@ -62,6 +62,17 @@
 .f3 .card_add_relative:hover {
   color: black;
 }
+.f3 .card_information {
+  cursor: pointer;
+  color: #fff;
+  transition: 0.3s;
+}
+.f3 .card_information circle {
+  fill: rgba(0, 0, 0, 0);
+}
+.f3 .card_information:hover {
+  color: black;
+}
 .f3 .card_edit.pencil_icon {
   color: #fff;
   transition: 0.3s;
