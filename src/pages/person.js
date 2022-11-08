@@ -1,5 +1,8 @@
 import React from "react";
 import treeJsonData from '../src/json/family_tree.json'
+import '../src/person_utils'
+import { personRelativesList } from "../src/person_utils";
+import { useSearchParams } from 'react-router-dom';
 
 //take in json object of picture data, output array of [[category name, string information], ...] for each applicable category
 function formatPersonInformation(data){
@@ -27,19 +30,15 @@ function formatPersonInformation(data){
     }
   });
 
+  var relatives_list = personRelativesList(data['id']);
+  information_list = information_list.concat(relatives_list);
+
   return information_list;
 }
 
-//get image name
-function getQueryString() {
-    const [hash, query] = window.location.href. split('#')[1].split('?');
-    const params = Object.fromEntries(new URLSearchParams(query));
-  
-    return params;
-}
-
 export default function Person() {
-  var person_id = getQueryString()['id'];
+  const [searchParams, setSearchParams] = useSearchParams();
+  var person_id = searchParams.get('id');
 
   var information_list = [];
   for (var i = 0; i < treeJsonData.length; i++) {
@@ -47,6 +46,9 @@ export default function Person() {
         //found the right image data
         information_list = formatPersonInformation(treeJsonData[i]);
     }
+  }
+  if (information_list.length == 0){
+    return <div>Person was not found</div>
   }
   return (
     <div>

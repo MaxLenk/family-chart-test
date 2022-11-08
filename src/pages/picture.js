@@ -1,5 +1,6 @@
 import React from "react";
 import pictureJsonData from '../src/json/picture_index.json'
+import { useSearchParams } from 'react-router-dom';
 
 //take in json object of picture data, output array of [[category name, string information], ...] for each applicable category
 function formatPictureInformation(data){
@@ -47,16 +48,10 @@ function formatPictureInformation(data){
   return information_list;
 }
 
-//get image name
-function getQueryString() {
-    const [hash, query] = window.location.href. split('#')[1].split('?');
-    const params = Object.fromEntries(new URLSearchParams(query));
-  
-    return params;
-}
-
 export default function Picture() {
-  var image_name = getQueryString()['name'];
+  const [searchParams, setSearchParams] = useSearchParams();
+  var image_name = searchParams.get('name');
+
   var image_loc = process.env.PUBLIC_URL + '/pictures/' + image_name + ".png";
 
   var information_list = [];
