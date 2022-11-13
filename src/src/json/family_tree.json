@@ -54,12 +54,15 @@
     },
     "rels": {
       "spouses": [
-        "0"
+        "0",
+        "312d8c09-b648-45ba-9936-76f2047eba8c"
       ],
       "children": [
         "c4071041-54d8-48f1-832b-4720782baa1d",
         "85ca1fcd-b323-4e4f-a42a-19e7fe99f369",
-        "5ff8713a-e05f-472c-ae60-2b9708e2dfde"
+        "5ff8713a-e05f-472c-ae60-2b9708e2dfde",
+        "b2f75a75-c8e6-4f7b-942a-2e79773a4688",
+        "646fb18a-479e-487f-aec1-5bca92824e68"
       ]
     }
   },
@@ -95,6 +98,54 @@
     "rels": {
       "mother": "f1a49f52-ef7a-43a2-b943-dd9f65489901",
       "father": "0"
+    }
+  },
+
+  {
+    "id": "312d8c09-b648-45ba-9936-76f2047eba8c",
+    "data": {
+      "gender": "M",
+      "first name": "Peter",
+      "last name": "Rexer",
+      "birthday": "",
+      "avatar": ""
+    },
+    "rels": {
+      "spouses": [
+        "f1a49f52-ef7a-43a2-b943-dd9f65489901"
+      ],
+      "children": [
+        "b2f75a75-c8e6-4f7b-942a-2e79773a4688",
+        "646fb18a-479e-487f-aec1-5bca92824e68"
+      ]
+    }
+  },
+  {
+    "id": "b2f75a75-c8e6-4f7b-942a-2e79773a4688",
+    "data": {
+      "gender": "M",
+      "first name": "Jack",
+      "last name": "Rexer",
+      "birthday": "05/9/1997",
+      "avatar": ""
+    },
+    "rels": {
+      "father": "312d8c09-b648-45ba-9936-76f2047eba8c",
+      "mother": "f1a49f52-ef7a-43a2-b943-dd9f65489901"
+    }
+  },
+  {
+    "id": "646fb18a-479e-487f-aec1-5bca92824e68",
+    "data": {
+      "gender": "F",
+      "first name": "Emily",
+      "last name": "Rexer",
+      "birthday": "01/21/1999",
+      "avatar": ""
+    },
+    "rels": {
+      "father": "312d8c09-b648-45ba-9936-76f2047eba8c",
+      "mother": "f1a49f52-ef7a-43a2-b943-dd9f65489901"
     }
   },
   {
