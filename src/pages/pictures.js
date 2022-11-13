@@ -87,8 +87,8 @@ export default function Pictures() {
     
       return (
         <>
-          <label htmlFor="search">
-            Search People: 
+          <label style={{margin: "20px 0px 20px 0px", display: "inline-block"}} htmlFor="search">
+            Search People:{' '}
             <input id="search" type="text" onChange={handleSearch} />
           </label>
           <table {...getTableProps()} border="collapse">

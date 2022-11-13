@@ -1,7 +1,6 @@
 import React, { useMemo, useState } from "react";
 import pictureJsonData from '../src/json/picture_index.json'
-import { useSearchParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 
 //take in json object of picture data, output array of [[category name, string information], ...] for each applicable category
 function formatPictureInformation(data){
@@ -120,7 +119,8 @@ async function formatPictureLabels(image_labels_loc, pictureData){
           // onClick={"location.href='" + process.env.PUBLIC_URL + '#/person?id=' + pictureData['people'][row_index][column_index]+"'"}>
           //   {name}
           // </button>
-          <Link onMouseOver={labelMouseOver} onMouseOut={labelMouseOut} key={"label_" + name} style={style} 
+          <Link onMouseOver={labelMouseOver} onMouseOut={labelMouseOut} key={"label_" + column_index.toString() + row_index.toString()} 
+          style={style} 
           to={{ pathname: '/person', search: "id=" + pictureData['people'][row_index][column_index] }} className="btn btn-primary">
             {name}
           </Link>

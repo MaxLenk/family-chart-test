@@ -1,8 +1,9 @@
 import React from "react";
 import treeJsonData from '../src/json/family_tree.json'
+import pictureJsonData from '../src/json/picture_index.json'
 import '../src/person_utils'
 import { personRelativesList } from "../src/person_utils";
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 
 //take in json object of picture data, output array of [[category name, string information], ...] for each applicable category
 function formatPersonInformation(data){
@@ -36,10 +37,29 @@ function formatPersonInformation(data){
   return information_list;
 }
 
+function getPersonPictures(person_id){
+  var pictures_jsx = [];
+  pictureJsonData.forEach( pictureJson => {
+    if (pictureJson['people'].some(row => row.includes(person_id))){
+      var image_loc = process.env.PUBLIC_URL + '/pictures/' + pictureJson['filename'] + ".png";
+
+      pictures_jsx.push(
+        <Link key={"pic_" + pictureJson['filename']} 
+          to={{ pathname: '/picture', search: "name=" + pictureJson['filename'] }}>
+            <img src={image_loc} width="100px" alt="Not found" />
+        </Link>
+      );
+    }
+  });
+
+  return pictures_jsx;
+}
+
 export default function Person() {
   const [searchParams] = useSearchParams();
   var person_id = searchParams.get('id');
 
+  //format the person's information
   var information_list = [];
   for (var i = 0; i < treeJsonData.length; i++) {
     if (treeJsonData[i]['id'] === person_id){
@@ -50,6 +70,10 @@ export default function Person() {
   if (information_list.length === 0){
     return <div>Person was not found</div>
   }
+
+  //get a list of all pictures the person is in
+  var pictures_jsx = getPersonPictures(person_id);
+
   return (
     <div>
     <table>
@@ -64,6 +88,8 @@ export default function Person() {
       ))}
       </tbody>
     </table>
+    <br/>Pictures:<br/>
+    {pictures_jsx}
     </div>
   );
 }
