@@ -37,10 +37,10 @@ export default function CalculateTree({data_stash, main_id=null, is_vertical=tru
       return offset
     }
 
-    function hasCh(d) {return !!d.children}
-    function sameParent(a, b) {return a.parent == b.parent}
+    //function hasCh(d) {return !!d.children}
+    function sameParent(a, b) {return a.parent === b.parent}
     function sameBothParents(a, b) {return (a.data.rels.father === b.data.rels.father) && (a.data.rels.mother === b.data.rels.mother)}
-    function someChildren(a, b) {return hasCh(a) || hasCh(b)}
+    //function someChildren(a, b) {return hasCh(a) || hasCh(b)}
     function hasSpouses(d) {return d.data.rels.spouses && d.data.rels.spouses.length > 0}
     function someSpouses(a, b) {return hasSpouses(a) || hasSpouses(b)}
 

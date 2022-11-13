@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useMemo } from "react";
 import { useTable } from "react-table";
 import pictureJsonData from '../src/json/picture_index.json'
 
@@ -36,7 +36,7 @@ export default function Pictures() {
             accessor: d => <a href = {process.env.PUBLIC_URL + '#/picture?name=' + d.filename}>{d.filename}</a>
           },
           {
-            Header: "Date",
+            Header: "Date (Y/M/D)",
             accessor: d => `${d.date.year || "?"}/${d.date.month || "?"}/${d.date.day || "?"}`
           },
           {
@@ -69,7 +69,7 @@ export default function Pictures() {
           processedPictureJsonData.filter((picture) => {
             return picture.names.join().toLowerCase().includes(search.toLowerCase());
           }),
-        [search]
+        [search, processedPictureJsonData]
       );
     
 

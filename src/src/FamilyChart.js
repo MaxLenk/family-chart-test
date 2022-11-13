@@ -1,6 +1,7 @@
 import React from "react";
 import f3 from "./family-chart/index.js"; // npm i family-chart
 import "./family-chart.css"; // create file 'family-chart.css' in same directory, copy/paste css from examples/create-tree
+import treeJsonData from '../src/json/family_tree.json'
 
 export default class FamilyTree extends React.Component {
   cont = React.createRef();
@@ -9,7 +10,7 @@ export default class FamilyTree extends React.Component {
     if (!this.cont.current) return;
 
     const store = f3.createStore({
-        data: data(),
+        data: treeJsonData,
         node_separation: 250,
         level_separation: 150
       }),
@@ -50,9 +51,6 @@ export default class FamilyTree extends React.Component {
     store.setOnUpdate((props) => view.update(props || {}));
     store.update.tree({ initial: true });
 
-    function data() {
-      return require('./json/family_tree.json');
-    }
   }
 
   render() {

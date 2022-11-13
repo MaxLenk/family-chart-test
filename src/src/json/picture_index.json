@@ -1411,10 +1411,12 @@
                 "166435f1-fa90-4361-ac63-72b6d737629e",
                 "4743ada7-aaf3-4a1e-9dd0-402422e4af21",
                 "dccf01a5-ae55-41f5-a4b6-d439c5d3eb42",
-                "0",
                 "b2300ce9-31de-41a7-bfeb-c991f4d54ed3",
                 "30279914-deba-4da5-a586-cf0e9e797095",
                 "347c048b-f16b-4a11-8166-ef51e5ee9ab2"
+            ],
+            [
+                "0"
             ]
         ],
         "names": [
@@ -1423,10 +1425,12 @@
                 "Martha Lenk Sr",
                 "Helmuth Schurgast",
                 "Ingrid Schurgast",
-                "Ron Lenk",
                 "Ellen Lenk",
                 "Ilse Schurgast",
                 "Herbert Lenk"
+            ],
+            [
+                "Ron Lenk"
             ]
         ],
         "additional info": null

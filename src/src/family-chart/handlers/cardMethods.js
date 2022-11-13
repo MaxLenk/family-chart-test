@@ -1,5 +1,5 @@
 import {toggleAllRels, toggleRels} from "../CalculateTree/CalculateTree.handlers.js"
-import AddRelativeTree from "../AddRelativeTree/AddRelativeTree.js"
+//import AddRelativeTree from "../AddRelativeTree/AddRelativeTree.js"
 import {deletePerson, moveToAddToAdded} from "./general.js"
 
 export function cardChangeMain(store, {card, d}) {

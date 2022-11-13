@@ -37,17 +37,17 @@ function formatPersonInformation(data){
 }
 
 export default function Person() {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   var person_id = searchParams.get('id');
 
   var information_list = [];
   for (var i = 0; i < treeJsonData.length; i++) {
-    if (treeJsonData[i]['id'] == person_id){
+    if (treeJsonData[i]['id'] === person_id){
         //found the right image data
         information_list = formatPersonInformation(treeJsonData[i]);
     }
   }
-  if (information_list.length == 0){
+  if (information_list.length === 0){
     return <div>Person was not found</div>
   }
   return (

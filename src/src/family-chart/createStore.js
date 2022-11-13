@@ -1,5 +1,5 @@
 import CalculateTree from "./CalculateTree/CalculateTree.js"
-import {createTreeDataWithMainNode} from "./handlers/newPerson.js"
+//import {createTreeDataWithMainNode} from "./handlers/newPerson.js"
 
 export default function createStore(initial_state) {
   let onUpdate;

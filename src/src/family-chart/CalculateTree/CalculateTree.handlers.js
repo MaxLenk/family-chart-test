@@ -29,7 +29,7 @@ export function calculateEnterAndExitPositions(d, entering, exiting) {
   } else if (exiting) {
     const x = d.x > 0 ? 1 : -1,
       y = d.y > 0 ? 1 : -1
-    {d._x = d.x+400*x; d._y = d.y+400*y;}
+    d._x = d.x+400*x; d._y = d.y+400*y;
   }
 }
 

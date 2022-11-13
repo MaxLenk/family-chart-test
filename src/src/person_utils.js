@@ -38,7 +38,7 @@ export function personRelativesList(person_id)
                         {index + 1 < cur_ids.length ? ", " : ""}
                     </span>
                     )}
-                </div>
+                </div>;
             output_list.push([element, spouses_list]);
         }
     });

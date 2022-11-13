@@ -82,7 +82,7 @@ export function createNewPersonWithGenderFromRel({data, rel_type, rel_datum}) {
   return createNewPerson({data})
 
   function getGenderFromRelative(rel_datum, rel_type) {
-    return (["daughter", "mother"].includes(rel_type) || rel_type === "spouse" && rel_datum.data.gender === "M") ? "F" : "M"
+    return (["daughter", "mother"].includes(rel_type) || (rel_type === "spouse" && rel_datum.data.gender === "M")) ? "F" : "M"
   }
 }
 
