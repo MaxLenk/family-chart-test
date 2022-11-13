@@ -14,7 +14,7 @@ export default function View(tree, {store, data_stash, cont, datum, card_dim, ca
   return {
     template: (`
       <svg id="family-tree-svg" style="width: 100%; height: 100%">
-        <rect width="${svg_dim.width*1.5}" height="${svg_dim.height}" fill="transparent" />
+        <rect width="${svg_dim.width}" height="${svg_dim.height}" fill="transparent" />
         <g class="view">
           <g transform="translate(${tree_fit.x}, ${tree_fit.y})scale(${tree_fit.k})">
             ${tree.data.slice(1).map((d, i) => Link({d, is_vertical: !["spouse"].includes(d.data.rel_type)}).template)}
@@ -28,7 +28,7 @@ export default function View(tree, {store, data_stash, cont, datum, card_dim, ca
 
   function calculateTreeFit(svg_dim) {
     const k = scale || 1;
-    return {k, x:svg_dim.width*1.5/2, y: svg_dim.height/2}
+    return {k, x:svg_dim.width/2, y: svg_dim.height/2}
   }
 
   function Card({d, is_main}) {

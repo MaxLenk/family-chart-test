@@ -176,6 +176,13 @@ export default function Picture() {
   };
   return (
     <div>
+    <style>{`
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px;
+      }
+    `}</style>
       <div key="image" style={style}>
         <img src={image_loc} width="50%" alt="Not found" />
         {labels}

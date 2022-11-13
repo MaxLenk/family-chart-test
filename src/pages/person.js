@@ -80,6 +80,13 @@ export default function Person() {
 
   return (
     <div>
+    <style>{`
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px;
+      }
+    `}</style>
     <img src={avatar_loc} width="30%" alt="Avatar not found" />
     <table>
       <thead>

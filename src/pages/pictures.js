@@ -87,11 +87,19 @@ export default function Pictures() {
     
       return (
         <>
+        <style>{`
+          table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+          }
+        `}</style>
+
           <label style={{margin: "20px 0px 20px 0px", display: "inline-block"}} htmlFor="search">
             Search People:{' '}
             <input id="search" type="text" onChange={handleSearch} />
           </label>
-          <table {...getTableProps()} border="collapse">
+          <table {...getTableProps()}>
             <thead>
               {headerGroups.map(headerGroup => (
                 <tr {...headerGroup.getHeaderGroupProps()}>
