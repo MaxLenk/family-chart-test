@@ -80,7 +80,7 @@ export default function Person() {
 
   return (
     <div>
-    <img src={avatar_loc} width="30%" alt="Not found" />
+    <img src={avatar_loc} width="30%" alt="Avatar not found" />
     <table>
       <thead>
       </thead>
