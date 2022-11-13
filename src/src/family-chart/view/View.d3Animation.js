@@ -120,7 +120,7 @@ export default function d3AnimationView({store, cont, Card}) {
     const svg_dim = cont.getBoundingClientRect(),
       svg_html = (`
         <svg class="main_svg">
-          <rect width="${svg_dim.width}" height="${svg_dim.height}" fill="transparent" />
+          <rect width="${svg_dim.width*1.5}" height="${svg_dim.height}" fill="transparent" />
           <g class="view">
             <g class="links_view"></g>
             <g class="cards_view"></g>
