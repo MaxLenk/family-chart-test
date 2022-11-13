@@ -46,7 +46,7 @@ function getPersonPictures(person_id){
       pictures_jsx.push(
         <Link key={"pic_" + pictureJson['filename']} 
           to={{ pathname: '/picture', search: "name=" + pictureJson['filename'] }}>
-            <img src={image_loc} width="100px" alt="Not found" />
+            <img src={image_loc} width="150px" alt="Not found" />
         </Link>
       );
     }
@@ -61,10 +61,14 @@ export default function Person() {
 
   //format the person's information
   var information_list = [];
+  var avatar_loc = "";
   for (var i = 0; i < treeJsonData.length; i++) {
     if (treeJsonData[i]['id'] === person_id){
         //found the right image data
         information_list = formatPersonInformation(treeJsonData[i]);
+
+        //get the avatar pic
+        avatar_loc = process.env.PUBLIC_URL + '/pictures/' + treeJsonData[i]['data']['avatar'] + ".png";
     }
   }
   if (information_list.length === 0){
@@ -76,6 +80,7 @@ export default function Person() {
 
   return (
     <div>
+    <img src={avatar_loc} width="30%" alt="Not found" />
     <table>
       <thead>
       </thead>
