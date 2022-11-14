@@ -4,7 +4,6 @@ import React from 'react';
 var setLoginToken = null;
 
 function validateLogin(){
-  //-F;8MSN;?F"8/R9#*,9[X`M]6BVR"6>T/,
   //https://bigprimes.org/
   var password = document.getElementById("password").value;
   var master_password = 899698826925408217616668411965875890691630320222587056493923n;
