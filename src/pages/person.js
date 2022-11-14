@@ -68,7 +68,7 @@ export default function Person() {
         information_list = formatPersonInformation(treeJsonData[i]);
 
         //get the avatar pic
-        avatar_loc = process.env.PUBLIC_URL + '/pictures/' + treeJsonData[i]['data']['avatar'] + ".png";
+        avatar_loc = process.env.PUBLIC_URL + '/pictures/thumbnails/' + treeJsonData[i]['data']['avatar'] + ".png";
     }
   }
   if (information_list.length === 0){
