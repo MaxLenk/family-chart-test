@@ -5,7 +5,7 @@ import '../src/person_utils'
 import { personRelativesList } from "../src/person_utils";
 import { useSearchParams, Link } from 'react-router-dom';
 
-//take in json object of picture data, output array of [[category name, string information], ...] for each applicable category
+//take in json object of person data, output array of [[category name, string information], ...] for each applicable category
 function formatPersonInformation(data){
   const italic_style = {
     fontStyle: 'italic'

@@ -6,6 +6,7 @@ import Login from './pages/login';
 import FamilyTree from './pages/familyTree';
 import Pictures from './pages/pictures';
 import Picture from './pages/picture';
+import People from './pages/people';
 import Person from './pages/person';
   
 function App() {
@@ -32,6 +33,7 @@ function App() {
             <Route path='/family-tree' element={<FamilyTree/>} />
             <Route path='/pictures' element={<Pictures/>} />
             <Route path='/picture' element={<Picture/>} />
+            <Route path='/people' element={<People/>} />
             <Route path='/person' element={<Person/>} />
         </Routes>
         </Router>

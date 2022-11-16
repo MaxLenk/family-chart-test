@@ -10,6 +10,9 @@ const Navbar = () => {
           <NavLink to="/family-tree" activestyle="true">
             Family Tree
           </NavLink>
+          <NavLink to="/people" activestyle="true">
+            People
+          </NavLink>
           <NavLink to="/pictures" activestyle="true">
             Pictures
           </NavLink>
