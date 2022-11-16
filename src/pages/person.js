@@ -100,6 +100,7 @@ export default function Person() {
       ))}
       </tbody>
     </table>
+    <br/><a href={process.env.PUBLIC_URL + "#/family-tree?id=" + person_id}>Link to position on family tree</a><br/>
     <br/>Pictures:<br/>
     {pictures_jsx}
     </div>

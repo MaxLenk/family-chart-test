@@ -2,7 +2,6 @@ import React, { useMemo } from "react";
 import { useTable } from "react-table";
 import treeJsonData from '../src/json/family_tree.json'
 import '../src/person_utils'
-//import { personRelativesList } from "../src/person_utils";
 
 function processData(jsonData) {
   const result = Object.keys(jsonData).map((key) => { 
@@ -10,25 +9,6 @@ function processData(jsonData) {
   });
   return result;
 }
-
-// const Names = ({ row }) => {
-//   var id_list = row.original.people;
-  
-//   return (
-//     <div style={{whiteSpace: "pre-line"}}>
-//       {row.original.names.map( (current_row, index) =>
-//         <div key={row.original.filename + "_" + index.toString()}>
-//           {current_row.map( ( current_person, index2)=>
-//             <span key={row.original.filename + "_" + index.toString() + "_" + index2.toString()}>
-//               <a href={process.env.PUBLIC_URL + '#/person?id=' + id_list[index][index2]}>{current_person}</a>
-//               {index2 + 1 < id_list[index].length ? ", " : ""}
-//             </span>
-//           )}
-//         </div>
-//          )}
-//     </div>
-//   );
-// };
 
 const italic_style = {
   fontStyle: 'italic'
@@ -68,10 +48,6 @@ export default function People() {
             Header: "Gender",
             accessor: d => d['data']['gender']
           },
-          // {
-          //   Header: "People",
-          //   Cell: ({ row }) => <Names row={row} />
-          // },
           {
             Header: "Additional Information",
             accessor: d => d['data']['other info']
