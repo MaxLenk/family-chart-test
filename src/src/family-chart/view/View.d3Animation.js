@@ -16,9 +16,9 @@ export default function d3AnimationView({store, cont, Card}) {
     if (!props) props = {}
     const tree = store.state.tree,
       view = d3.select(svg).select(".view"),
-      tree_position = props.tree_position || 'fit',
+      tree_position = document.getElementById('fit_view').checked ? 'fit' : 'inherit',
       transition_time = props.hasOwnProperty('transition_time') ? props.transition_time : 1000;
-
+    
     updateCards();
     updateLinks();
     if (props.initial) treeFit({svg, svg_dim: svg.getBoundingClientRect(), tree_dim: tree.dim, transition_time: 0})

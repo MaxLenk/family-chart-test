@@ -14,7 +14,7 @@ export default class FamilyTree extends React.Component {
         main_id: this.props.person_id ? this.props.person_id : "0",
         data: treeJsonData,
         node_separation: 250,
-        level_separation: 150
+        level_separation: 110
       }),
       view = f3.d3AnimationView({
         store,
@@ -55,7 +55,32 @@ export default class FamilyTree extends React.Component {
 
   }
 
+  
   render() {
-    return <div className="f3" id="FamilyChart" ref={this.cont}></div>;
+    var styles = {
+      options: {
+        float: "left",
+        width: "20%"
+      },
+      tree: {
+        float: "left"
+      }
+    };
+    
+    return (
+    <>
+      <div style={styles.options}>
+        <div>
+          <br/>
+          <input type="checkbox" id="fit_view" name="fit_view" defaultChecked />
+          <label htmlFor="fit_view">Auto-resize Tree</label>
+        </div>
+      </div>
+      <div style={styles.tree}>
+        <br/>
+        <div className="f3" id="FamilyChart" ref={this.cont}></div>
+      </div>
+    </>
+    );
   }
 }
