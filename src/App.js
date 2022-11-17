@@ -30,7 +30,7 @@ function App() {
         <Router>
         <Navbar />
         <Routes>
-            <Route path='/family-tree' element={<FamilyTree/>} />
+            <Route path='/family-tree' element={<FamilyTree />} />
             <Route path='/pictures' element={<Pictures/>} />
             <Route path='/picture' element={<Picture/>} />
             <Route path='/people' element={<People/>} />
