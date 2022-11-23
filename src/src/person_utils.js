@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 export function personRelativesList(person_id)
 {
     var output_list = [];
+    
+    var sibling_id_list = [];
 
     //parents
     ['Mother', 'Father'].forEach( element =>{
@@ -20,6 +22,13 @@ export function personRelativesList(person_id)
                     </Link>
                 </span>;
             output_list.push([element, parent_link]);
+
+            //add children to list of children if they aren't already in there. Can add logic to differentiate half siblings
+            orderedTreeJsonData[cur_id]["rels"]["children"].forEach( element =>{
+                if (sibling_id_list.indexOf(element) === -1 && element !== person_id){
+                    sibling_id_list.push(element);
+                }
+            });
         }
     });
 
@@ -42,6 +51,24 @@ export function personRelativesList(person_id)
             output_list.push([element, spouses_list]);
         }
     });
+
+
+    //siblings
+    if (sibling_id_list)
+    {
+        var siblings_list = 
+            <div key={person_id}>
+                {sibling_id_list.map( ( current_id, index )=>
+                <span key={person_id + current_id}>
+                    <Link to={{ pathname: '/person', search: "id=" + current_id }}>
+                        {nameFromId(current_id)}
+                    </Link>
+                    {index + 1 < sibling_id_list.length ? ", " : ""}
+                </span>
+                )}
+            </div>;
+        output_list.push(['Siblings', siblings_list]);
+    }
     
 
     return output_list;
